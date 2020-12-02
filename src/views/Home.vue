@@ -16,7 +16,7 @@
                 <img src="frutas.jpg" width="90%" height="90%"/>
             </div>
 
-            <div class="col-6">git 
+            <div class="col-6">
                 <img src="jugete.jpg" width="90%" height="90%"/>
             </div>
             <div class="col-6">
