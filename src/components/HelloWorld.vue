@@ -20,13 +20,5 @@ export default {
 
 <style>
 
-.t1{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-block: 10%;
-  border-color:rgb(43, 214, 226);
-}
-img{
-  border-radius: 20% ;
-  border-collapse: inherit;
-}
+
 </style>
