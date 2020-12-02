@@ -8,36 +8,41 @@
 
         <div class="row m-2 aling-center">
              
-            <div class="c1 col-5 col-md-3">
-                 <img src="comida.jpg" width="120%" height="120%" class="btn" @click="ingreso()" id="1" />
+            <div class="c1 col-5 col-md-3" >
+                 <img src="imge/comida.jpg" width="120%" height="120%" class="btn"  @click="ver(id=1)" />
+                
             </div>
 
-            <div class="c1 col-5 col-md-3" @click="guardar">
-                <img src="frutas.jpg" width="120%" height="120%" class="btn" id="2 "/>
+            <div class="c1 col-5 col-md-3" >
+                <img src="imge/frutas.jpg" width="120%" height="120%" class="btn"  @click="ver(id=2)"/>
             </div>
             
 
             <div class="c1 col-5 col-md-3">  
-                <img src="jugete.jpg" width="120%" height="120%" class="btn" id="3" />
+                <img src="imge/jugete.jpg" width="120%" height="120%" class="btn"  @click="ver(id=3)" />
             </div>
 
             <div class="c1 col-5 col-md-3">
-                <img src="pelicula.jfif" width="120%" height="120%" class="btn" id="4" />
+                <img src="imge/pelicula.jfif" width="120%" height="120%" class="btn" @click="ver(id=5)" />
+            </div>
+
+
+            <div class="c1 col-5 col-md-3">
+                <img src="imge/anime.jfif" width="120%" height="120%" class="btn" @click="ver(id=5)" />
             </div>
 
             <div class="c1 col-5 col-md-3">
-                <img src="anime.jfif" width="120%" height="130%" class="btn" id="5" />
-            </div>
-
-            <div class="c1 col-5 col-md-3">
-                <img src="animales.jfif" width="120%" height="130%" class="btn" id="6" />
+                <img src="imge/animales.jfif" width="120%" height="120%" class="btn"  @click="ver(id=6)" />
             </div>
            
+          
         </div>
       </div>
     </div>
-     
-    {{msg="hoal"}}
+     <!--   {{msg="zxczxc"}} -->
+
+     <!-- <HelloWorld/> -->
+ 
 <!-- 
       <t v-for="categ in categorias" :key="categ.id" >
             <li class="nav-item active">
@@ -58,6 +63,9 @@ export default {
    data(){
         return{
             categorias: ["1"],
+            ingreso:1,
+            val:0,
+            id:0,
     };
    },
   components: {
@@ -65,15 +73,26 @@ export default {
   },
 
   mounted() {
-
-        this.consulta()
+        this.ver()
     },
-    methods:{
+  methods:{
+    
+    ver(id){
+        this.id
+        this.val = this.val + this.ingreso
+        if(this.val==2){
+         
+          this.val=1,
+          /* console.log(this.val) */
+          console.log(id)
+          this.$router.push('/valor')
 
-      consulta(){
-        this.$router.push('/')
-      }
-    }
+        }
+       
+    },
+
+  }
+ 
 }
 </script>
 
