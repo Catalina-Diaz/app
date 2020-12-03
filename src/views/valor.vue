@@ -8,7 +8,8 @@
         <div class="row  aling-center">
           <div class="col-5 col-md-4" v-for="(categ, index) in categorias" :key="index">
               <div class="c1 ">
-                 <img :src="categorias[index]" width="120%" height="120%" class="btn2 btn"  @click="ver(id=index)" />  
+                  <label for=""> 3 X {{index+3}} </label>
+                 <img :src="categorias[index]" width="100%" height="100%" class="btn2 btn"  @click="ver(id=index)" />  
               </div> 
           </div>
         </div>
@@ -26,13 +27,14 @@ export default {
   name: 'valor',
    data(){
         return{
-            categorias: ["imge/comida.jpg","imge/frutas.jpg","imge/jugete.jpg",
-            "imge/pelicula.jfif","imge/anime.jfif","imge/animales.jfif"],
+            categorias: ["imge/cuadro.png","imge/cuadro.png","imge/cuadro.png",
+            "imge/cuadro.png","imge/cuadro.png","imge/cuadro.png"],
             ingreso:1,
             val:0,
             valo:0,
             id:0,
             cate:0,
+            index:3,
     };
    },
  
