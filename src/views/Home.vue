@@ -6,9 +6,9 @@
         <h1 class="t1 text-center "> ENCUENTRALO </h1>
 
         <div class="row  aling-center">
-          <div class="col-6 col-md-5" v-for="(categ, index) in categorias" :key="index">
+          <div class="col-5 col-md-4" v-for="(categ, index) in categorias" :key="index">
               <div class="c1 ">
-                 <img :src="categorias[index]" width="120%" height="120%" class="btn"  @click="ver(id=index)" />  
+                 <img :src="categorias[index]" width="120%" height="120%" class="btn1 btn"  @click="ver(id=index)" />  
               </div> 
           </div>
         </div>
@@ -71,12 +71,11 @@ export default {
   border-color:rgb(43, 214, 226);
 }
 
-.btn{
+.btn1{
   border-radius: 20% ;
   border-collapse: inherit;
   border-block-width: 5px;
   border-block-color: rgb(17, 186, 216);
-  
 }
 .c1{
   margin-top: 8%;

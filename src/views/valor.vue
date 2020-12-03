@@ -3,64 +3,80 @@
   <div class="inicio">
     <div class="container">
       <div class="col">
-           <img src="imge/comida.jpg" href="Home.vue" width="10%" height="10%" class="btn"/>
-             <div>
-
-        <b variant="faded" type="light">
-          <b href="Home.vue">
-            <img src="https://placekitten.com/g/30/30" style="border-radius:40px" >
-          </b>
-        </b>
-        
-    </div>
-        <h1 class="t1 text-center "> ELIGE LA DIFICULTAD </h1>
-
-
-        <div class="row m-2 aling-center">
-             
-            <div class="c1 col-5 col-md-3" >
-                 <img src="imge/comida.jpg" width="120%" height="120%" class="btn"  @click="ver(id=1)" />
-            </div>
-
-            <div class="c1 col-5 col-md-3" >
-                <img src="imge/frutas.jpg" width="120%" height="120%" class="btn"  @click="ver(id=2)"/>
-            </div>
-            
-
-            <div class="c1 col-5 col-md-3">  
-                <img src="imge/jugete.jpg" width="120%" height="120%" class="btn"  @click="ver(id=3)" />
-            </div>
-
-            <div class="c1 col-5 col-md-3">
-                <img src="imge/pelicula.jfif" width="120%" height="120%" class="btn" @click="ver(id=5)" />
-            </div>
-
-
-            <div class="c1 col-5 col-md-3">
-                <img src="imge/anime.jfif" width="120%" height="120%" class="btn" @click="ver(id=5)" />
-            </div>
-
-            <div class="c1 col-5 col-md-3">
-                <img src="imge/animales.jfif" width="120%" height="120%" class="btn"  @click="ver(id=6)" />
-            </div>
-           
-          
+        <h1 class="t1 text-center "> DIFICULTAD </h1>
+        <img src="imge/home.png" @click="inicio()" class="btn" width="15%" height="50%" style="border-radius:100px"/>
+        <div class="row  aling-center">
+          <div class="col-5 col-md-4" v-for="(categ, index) in categorias" :key="index">
+              <div class="c1 ">
+                 <img :src="categorias[index]" width="120%" height="120%" class="btn2 btn"  @click="ver(id=index)" />  
+              </div> 
+          </div>
         </div>
+
+
       </div>
     </div>
-
   </div>
 </template>
 
 
 <script>
 
-import HelloWorld from '@/components/HelloWorld.vue'
 export default {
-name: "Valor",
- props: {
-    msg: String
-  }
-}
+  name: 'valor',
+   data(){
+        return{
+            categorias: ["imge/comida.jpg","imge/frutas.jpg","imge/jugete.jpg",
+            "imge/pelicula.jfif","imge/anime.jfif","imge/animales.jfif"],
+            ingreso:1,
+            val:0,
+            valo:0,
+            id:0,
+            cate:0,
+    };
+   },
+ 
 
+  mounted() {
+        this.ver(),
+        this.inicio()
+    },
+  methods:{
+    inicio(){
+
+          this.val = this.val + this.ingreso
+          
+          if(this.val==2){
+          this.val=0,
+          this.$router.push('/')
+            }
+
+    },
+
+    ver(id){
+        this.id
+        this.valo = this.valo + this.ingreso
+        if(this.valo==2){
+          this.valo=1,
+          /* console.log(this.val) */
+          console.log(id)
+        /*   this.$router.push('/valor') */
+        }
+       
+    },
+
+  }
+ 
+}
 </script>
+<style>
+.t2{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn2{
+  border-radius: 20% ;
+  border-collapse: inherit;
+  border-block-width: 5px;
+  border-block-color: rgb(216, 17, 173);
+}
+</style>
