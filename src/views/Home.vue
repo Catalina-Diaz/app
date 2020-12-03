@@ -5,52 +5,17 @@
       <div class="col">
         <h1 class="t1 text-center "> ENCUENTRALO </h1>
 
-
-        <div class="row m-2 aling-center">
-             
-            <div class="c1 col-5 col-md-3" >
-                 <img src="imge/comida.jpg" width="120%" height="120%" class="btn"  @click="ver(id=1)" />
-                
-            </div>
-
-            <div class="c1 col-5 col-md-3" >
-                <img src="imge/frutas.jpg" width="120%" height="120%" class="btn"  @click="ver(id=2)"/>
-            </div>
-            
-
-            <div class="c1 col-5 col-md-3">  
-                <img src="imge/jugete.jpg" width="120%" height="120%" class="btn"  @click="ver(id=3)" />
-            </div>
-
-            <div class="c1 col-5 col-md-3">
-                <img src="imge/pelicula.jfif" width="120%" height="120%" class="btn" @click="ver(id=5)" />
-            </div>
-
-
-            <div class="c1 col-5 col-md-3">
-                <img src="imge/anime.jfif" width="120%" height="120%" class="btn" @click="ver(id=5)" />
-            </div>
-
-            <div class="c1 col-5 col-md-3">
-                <img src="imge/animales.jfif" width="120%" height="120%" class="btn"  @click="ver(id=6)" />
-            </div>
-           
-          
+        <div class="row  aling-center">
+          <div v-for="(categ, index) in categorias" :key="index">
+              <div class="t1 row text-center">
+                 <img :src="categorias[index]" width="120%" height="120%" class="btn col-5 col-md-3"  @click="ver(id=index)" />  
+              </div> 
+          </div>
         </div>
+
+
       </div>
     </div>
-     <!--   {{msg="zxczxc"}} -->
-
-     <!-- <HelloWorld/> -->
- 
-<!-- 
-      <t v-for="categ in categorias" :key="categ.id" >
-            <li class="nav-item active">
-                  <img src="cuadro.png" width="90%" height="90%"/>
-           </li>   
-      </t>
-       -->
-      
   </div>
 </template>
 
@@ -62,10 +27,12 @@ export default {
   name: 'Home',
    data(){
         return{
-            categorias: ["1"],
+            categorias: ["imge/comida.jpg","imge/frutas.jpg","imge/jugete.jpg",
+            "imge/pelicula.jfif","imge/anime.jfif","imge/animales.jfif"],
             ingreso:1,
             val:0,
             id:0,
+            cate:0,
     };
    },
   components: {
