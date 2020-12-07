@@ -90,14 +90,15 @@ export default {
             image5:[],
             image6:[],
             /* ///////////// */
-            
+            cat:[],
+
              cards: [
-                {name:"frute",img: ""},
+/*                 {name:"frute",img: ""},
                 {name:"comida",img:'comida.jpg'},
                 {name:"jugete",img:'jugete.jpg'},
                 {name:"pelicula",img:'pelicula.jfif'},
                 {name:"anime",img:'anime.jfif'},
-                {name:"animales",img:'animales.jfif'},
+                {name:"animales",img:'animales.jfif'}, */
                 
             ],
             
@@ -163,7 +164,7 @@ export default {
          
          switch(id){
            case 0:{
-              this.direccion="img0"
+              this.direccion="imge"
            } break;
            case 1:{
               this.direccion="img1"
@@ -200,6 +201,14 @@ export default {
 
           switch(ide){
             case 0:{
+               this.cards= this.cards[
+                {name:"fruta",img: "frutas.jpg"},
+                {name:"comida",img:'comida.jpg'},
+                {name:"jugete",img:'jugete.jpg'},
+                {name:"pelicula",img:'pelicula.jfif'},
+                {name:"anime",img:'anime.jfif'},
+                {name:"animales",img:'animales.jfif'}
+            ]
 
             }break;
 
