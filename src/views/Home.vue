@@ -44,8 +44,8 @@
                   <div v-for="(card, index) in memoryCards" class="col-auto mb-3 flip-container" :class="{ 'flipped': card.isFlipped, 'matched' : card.isMatched }" @click="flipCard(card)" :key="index">
   
                     <div class="memorycard">
-                        <div class="front border rounded shadow"><img width="100" height="150" src="imge/fon.jfif"></div>
-                        <div class="back "><img width="100" height="150" :src="direccion + '/' + card.img"></div>
+                        <div v-if="card.img!=0" class="front border rounded shadow"><img width="100" height="150" src="imge/fon.jfif"></div>
+                        <div v-if="card.img!=0" class="back "><img width="100" height="150" :src=" direccion +'/' + card.img"></div>
                                
                     </div>
                  </div>
@@ -81,24 +81,17 @@ export default {
             ingre:1,
             ic:0,
             
-            direccion:null,
-
-            image1:[],
-            image2:[],
-            image3:[],
-            image4:[],
-            image5:[],
-            image6:[],
+            direccion: "" ,
             /* ///////////// */
-            cat:[],
 
              cards: [
-/*                 {name:"frute",img: ""},
-                {name:"comida",img:'comida.jpg'},
-                {name:"jugete",img:'jugete.jpg'},
-                {name:"pelicula",img:'pelicula.jfif'},
-                {name:"anime",img:'anime.jfif'},
-                {name:"animales",img:'animales.jfif'}, */
+                {name:"in1",img:'im1.jpg'},
+                {name:"in2",img:'im0.jpg'},
+                {name:"in3",img:'im2.jpg'},
+                {name:"in4",img:'im3.jpg'},
+                {name:"in5",img: 0 },
+                {name:"in6",img: 0 }, 
+                {name:"in7",img: 0 }, 
                 
             ],
             
@@ -183,38 +176,57 @@ export default {
            } break;
            
          }
+         
         }
+        console.log(this.direccion)
     },
+
+
     mostrar(ide){
         this.ide
         this.valo = this.valo + this.ingre
-        /* document.log(ingre, "este es el nuemro") */
-        if(this.valo==2){
-          this.valo=1,
-          /* console.log(this.val) */
-          console.log(ide)
           document.getElementById("difi").style.display="none";
           document.getElementById("ini").style.display="none";
           document.getElementById("jue").style.display="block";
-          /* 
-          this.$router.push('/valor') */
+        /* document.log(ingre, "este es el nuemro") */
+        if(this.valo==2){
+          this.valo=1
 
           switch(ide){
-            case 0:{
-               this.cards= this.cards[
-                {name:"fruta",img: "frutas.jpg"},
-                {name:"comida",img:'comida.jpg'},
-                {name:"jugete",img:'jugete.jpg'},
-                {name:"pelicula",img:'pelicula.jfif'},
-                {name:"anime",img:'anime.jfif'},
-                {name:"animales",img:'animales.jfif'}
-            ]
+            case 0: {
+              for(var c=0; c <= 3 ;c++){
+                switch(c){
+                  case 0:{
+                    this.cards[c].name = "ini"+c,
+                    this.cards[c].img = "im"+c+".jpg"
+                  }break;
+                  case 4:{
+                    this.card[c].name= "0",
+                    this.card[c].img= "0"
+                  }break;
+                  default:
+                    {
+                    this.card[c].name= "0",
+                    this.card[c].img= "0"
+                    }break;
+                }
+                
+                console.log(this.card[c])
+              }
+                
+              }break;
+              case 1: {
+              for(var c=0; c<=4 ;c++){
+                this.cards[c].name= "ini"+c,
+                this.cards[c].img="comida.jpg"
+                console.log(this.cards[c])
+              }
+                
+              }break;
+            }
 
-            }break;
-
-          }
-
-        }
+          
+          }     
     },
 
     flipCard(card){
