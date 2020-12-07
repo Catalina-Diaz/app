@@ -45,7 +45,7 @@
   
                     <div class="memorycard">
                         <div class="front border rounded shadow"><img width="100" height="150" src="imge/fon.jfif"></div>
-                        <div class="back "><img width="100" height="150" :src="direccion+'/'+card.img"></div>
+                        <div class="back "><img width="100" height="150" :src="direccion + '/' + card.img"></div>
                                
                     </div>
                  </div>
@@ -81,7 +81,7 @@ export default {
             ingre:1,
             ic:0,
             
-            direccion:"img1",
+            direccion:null,
 
             image1:[],
             image2:[],
@@ -92,12 +92,13 @@ export default {
             /* ///////////// */
             
              cards: [
-                {name:"frute",img:'1a.jfif'},
+                {name:"frute",img: ""},
                 {name:"comida",img:'comida.jpg'},
                 {name:"jugete",img:'jugete.jpg'},
                 {name:"pelicula",img:'pelicula.jfif'},
                 {name:"anime",img:'anime.jfif'},
                 {name:"animales",img:'animales.jfif'},
+                
             ],
             
 
@@ -152,11 +153,35 @@ export default {
          
           this.val=1,
           /* console.log(this.val) */
+
           console.log(id)
           document.getElementById("difi").style.display="block";
           document.getElementById("ini").style.display="none";
           document.getElementById("jue").style.display="none";
+
          /*  this.$router.push('/valor') */
+         
+         switch(id){
+           case 0:{
+              this.direccion="img0"
+           } break;
+           case 1:{
+              this.direccion="img1"
+           } break;
+           case 2:{
+              this.direccion="img2"
+           } break;
+           case 3:{
+              this.direccion="img3"
+           } break;
+           case 4:{
+              this.direccion="img4"
+           } break;
+           case 5:{
+              this.direccion="img5"
+           } break;
+           
+         }
         }
     },
     mostrar(ide){
@@ -172,6 +197,13 @@ export default {
           document.getElementById("jue").style.display="block";
           /* 
           this.$router.push('/valor') */
+
+          switch(ide){
+            case 0:{
+
+            }break;
+
+          }
 
         }
     },
