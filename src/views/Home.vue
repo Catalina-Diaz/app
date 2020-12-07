@@ -6,7 +6,7 @@
         <h1 class="t1 text-center "> ENCUENTRALO </h1>
 
         <div class="row  aling-center">
-          <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3  mx-auto" v-for="(categ, index) in categorias" :key="index">
+          <div class="col-5 col-sm-6 col-md-4 col-lg-3 col-xl-3  mx-auto" v-for="(categ, index) in categorias" :key="index">
               <div class="c1 ">
                  <img :src="categorias[index]" width="120%" height="120%" class="btn1 btn"  @click="ver(id=index)" />  
               </div> 
@@ -18,34 +18,22 @@
         <h1 class="t1 text-center " > DIFICULTAD </h1>
         <img src="imge/home.png" @click="inicio()" class="btn" width="15%" height="50%" style="border-radius:100px"/>
         <div class="row  aling-center">
-          <div class="col-5 col-md-4" v-for="(dific, inde) in dificultad" :key="inde">
+          <div class="col-5 col-sm-6 col-md-4 col-lg-3 col-xl-3  mx-auto" v-for="(dific, inde) in dificultad" :key="inde">
               <div class="c1 ">    
                     <label class="btn2 btn" @click="mostrar(ide=inde)" > 3 X {{inde+2}} </label>
-                 <!-- <img :src="dific[index]" width="100%" height="100%" class="btn2 btn"  @click="ver(id=inde)" />   -->
               </div> 
           </div>
         </div>
        </div> 
 
 
-       <div class="col" id="jue" style="display: none; ">
-        <h1 class="t1 text-center " > inciando el juego </h1>
-        <img src="imge/home.png" @click="inicio()" class="btn" width="15%" height="50%" style="border-radius:100px"/>
-
-        <div class="row  aling-center">
-          <div class="col-5 col-md-4" v-for="(categ, ultimo) in categorias" :key="ultimo">
-              <div class="c1 ">    
-                     <img :src="categorias[ultimo]" width="120%" height="120%" class="btn1 btn"  @click="ver(ic=ultimo)" />   
-              </div> 
-          </div>
-        </div>
-       </div>    
 
 
     </div>
 
-    <div id="app" style="display:block;">
+    <div id="jue" style="display:block;">
     <div class="d-flex flex-row justify-content-center py-3">
+         <img src="imge/home.png" @click="inicio()" class="btn" width="15%" height="50%" style="border-radius:100px"/>
         <div class="turns p-3"><span class="btn btn-danger">Turns : <span class="badge" :class="finish ? 'badge-success' : 'badge-light'">{{turns}}</span> </span></div>
         <div class="totalTime p-3"><span class="btn btn-warning">Total Time : <span class="badge" :class="finish ? 'badge-success' : 'badge-light'">{{min}} : {{sec}}</span></span></div>
         <div class="totalTime p-3"><button class="btn btn-info" @click="reset" :disabled="!start">Restart</button></div>
@@ -57,7 +45,7 @@
   
                     <div class="memorycard">
                         <div class="front border rounded shadow"><img width="100" height="150" src="imge/fon.jfif"></div>
-                        <div class="back rounded border"><img width="100" height="150" :src="'imge/'+card.img"></div>
+                        <div class="back "><img width="100" height="150" :src="direccion+'/'+card.img"></div>
                                
                     </div>
                  </div>
@@ -92,6 +80,8 @@ export default {
             inde:3,
             ingre:1,
             ic:0,
+            
+            direccion:"img1",
 
             image1:[],
             image2:[],
@@ -100,37 +90,16 @@ export default {
             image5:[],
             image6:[],
             /* ///////////// */
+            
              cards: [
-                {
-                    name: 'frutas',
-                    img: 'frutas.jpg',
-                },
-                {
-                    name: 'comida',
-                    img: 'comida.jpg',
- 
-                },
-                {
-                    name: 'jugete',
-                    img: 'jugete.jpg',
-
-                },
-                {
-                    name: 'pelicula',
-                    img: 'pelicula.jfif',
-
-                },
-                {
-                    name: 'anime',
-                    img: 'anime.jfif',
-
-                },
-                {
-                    name: 'animales',
-                    img: 'animales.jfif',
-
-                },
+                {name:"frute",img:'1a.jfif'},
+                {name:"comida",img:'comida.jpg'},
+                {name:"jugete",img:'jugete.jpg'},
+                {name:"pelicula",img:'pelicula.jfif'},
+                {name:"anime",img:'anime.jfif'},
+                {name:"animales",img:'animales.jfif'},
             ],
+            
 
             memoryCards: [],
             flippedCards: [],
