@@ -89,15 +89,23 @@ export default {
             /* ///////////// */
 
              cards: [
-                {name:"in1",img:'im1.jpg',men:''},
-                {name:"in2",img:'im0.jpg',men:''},
-                {name:"in3",img:'im2.jpg',men:''},
-                /* {name:"in4",img:'im3.jpg'}, */
+                {name:"in1",img:'im1.jpg',men:null},
+                {name:"in2",img:'im0.jpg',men:null},
+                {name:"in3",img:'im2.jpg',men:null},
                 {name:"in5",img: "a1",men:null},
                 {name:"in6",img: "a2",men:null}, 
                 {name:"in7",img: "a3",men:null}, 
+                {name:"in8",img: "a3",men:null}, 
+                {name:"in9",img: "a3",men:null}, 
+                {name:"in10",img: "a3",men:null}, 
+                {name:"in11",img: "a3",men:null}, 
+                {name:"in12",img: "a3",men:null}, 
+                {name:"in13",img: "a3",men:null}, 
+                {name:"in14",img: "a3",men:null}, 
+                {name:"in15",img: "a3",men:null}, 
+                {name:"in15",img: "a3",men:null}, 
             ],
-            
+            d:0,
 
             memoryCards: [],
             flippedCards: [],
@@ -159,7 +167,7 @@ export default {
          
          switch(id){
            case 0:{
-              this.direccion="imge"
+              this.direccion="img0"
            } break;
            case 1:{
               this.direccion="img1"
@@ -191,37 +199,143 @@ export default {
         /* document.log(ingre, "este es el nuemro") */
         if(this.valo==2){
           this.valo=1
-
+          this.d=0
           switch(ide){
             case 0: {
               for(var c=0; c <= this.cards.length-1 ;c++){
-                
                 switch(c){
-                  case 0:{
+                  case this.d :{
+                    if(this.d<3){
                     this.cards[c].name = "ini"+c,
-                    this.cards[c].img = "im"+c+".jpg"
+                    this.cards[c].img = "img"+c+".jpg"
                     this.cards[c].men = "a"+c,
                     console.log(this.cards[c])
-                  }break;
-                  case 1:{
-                    this.cards[c].name = "ini"+c,
-                    this.cards[c].img = "im"+c+".jpg",
-                    this.cards[c].men = "a"+c
-                  }break;
-                  case 2:{
-                    this.cards[c].name = "ini"+c,
-                    this.cards[c].img = "im"+c+".jpg"
-                    this.cards[c].men = "a"+c
+                    this.d++
+                    console.log("valoe"+this.d)
+                    }
                   }break;
                   default:{
-                    /* this.memoryCards[c]="casi cd" */
                     this.cards[c].men= null
                     console.log(this.cards[c])
                   }break;
- 
                 }
               }   
+              this.c=0
+              this.d=0
               }break;
+
+              case 1: {
+              for(var c=0; c <= this.cards.length-1 ;c++){
+                switch(c){
+                  case this.d :{
+                    if(this.d<4){
+                    this.cards[c].name = "ini"+c,
+                    this.cards[c].img = "img"+c+".jpg"
+                    this.cards[c].men = "a"+c,
+                    console.log(this.cards[c])
+                    this.d++
+                    console.log("valoe"+this.d)
+                    }
+                  }break;
+                  default:{
+                    this.cards[c].men= null
+                    console.log(this.cards[c])
+                  }break;
+                }
+              }   
+              this.c=0
+              this.d=0
+              }break;
+
+              case 2: {
+              for(var c=0; c <= this.cards.length-1 ;c++){
+                switch(c){
+                  case this.d :{
+                    if(this.d<5){
+                    this.cards[c].name = "ini"+c,
+                    this.cards[c].img = "img"+c+".jpg"
+                    this.cards[c].men = "a"+c,
+                    console.log(this.cards[c])
+                    this.d++
+                    console.log("valoe"+this.d)
+                    }
+                  }break;
+                  default:{
+                    this.cards[c].men= null
+                    console.log(this.cards[c])
+                  }break;
+                }
+              }   
+              this.c=0
+              this.d=0
+              }break;
+              case 3: {
+              for(var c=0; c <= this.cards.length-1 ;c++){
+                switch(c){
+                  case this.d :{
+                    if(this.d<6){
+                    this.cards[c].name = "ini"+c,
+                    this.cards[c].img = "img"+c+".jpg"
+                    this.cards[c].men = "a"+c,
+                    console.log(this.cards[c])
+                    this.d++
+                    console.log("valoe"+this.d)
+                    }
+                  }break;
+                  default:{
+                    this.cards[c].men= null
+                    console.log(this.cards[c])
+                  }break;
+                }
+              }   
+              this.c=0
+              this.d=0
+              }break;
+              case 4: {
+              for(var c=0; c <= this.cards.length-1 ;c++){
+                switch(c){
+                  case this.d :{
+                    if(this.d<7){
+                    this.cards[c].name = "ini"+c,
+                    this.cards[c].img = "img"+c+".jpg"
+                    this.cards[c].men = "a"+c,
+                    console.log(this.cards[c])
+                    this.d++
+                    console.log("valoe"+this.d)
+                    }
+                  }break;
+                  default:{
+                    this.cards[c].men= null
+                    console.log(this.cards[c])
+                  }break;
+                }
+              }   
+              this.c=0
+              this.d=0
+              }break;
+              case 5: {
+              for(var c=0; c <= this.cards.length-1 ;c++){
+                switch(c){
+                  case this.d :{
+                    if(this.d<8){
+                    this.cards[c].name = "ini"+c,
+                    this.cards[c].img = "img"+c+".jpg"
+                    this.cards[c].men = "a"+c,
+                    console.log(this.cards[c])
+                    this.d++
+                    console.log("valoe"+this.d)
+                    }
+                  }break;
+                  default:{
+                    this.cards[c].men= null
+                    console.log(this.cards[c])
+                  }break;
+                }
+              }   
+              this.c=0
+              this.d=0
+              }break;
+           
             }
           
           }    
