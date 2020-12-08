@@ -31,7 +31,7 @@
 
     </div>
 
-    <div id="jue" style="display:block;">
+    <div  id="jue" style="display:none;">
     <div class="d-flex flex-row justify-content-center py-3">
          <img src="imge/home.png" @click="inicio()" class="btn" width="15%" height="50%" style="border-radius:100px"/>
         <div class="turns p-3"><span class="btn btn-danger">Turns : <span class="badge" :class="finish ? 'badge-success' : 'badge-light'">{{turns}}</span> </span></div>
@@ -43,11 +43,13 @@
              <div class="row justify-content-md-center">
                   <div v-for="(card, index) in memoryCards" class="col-auto mb-3 flip-container" :class="{ 'flipped': card.isFlipped, 'matched' : card.isMatched }" @click="flipCard(card)" :key="index">
   
-                    <div class="memorycard">
-                        <div v-if="card.img!=0" class="front border rounded shadow"><img width="100" height="150" src="imge/fon.jfif"></div>
-                        <div v-if="card.img!=0" class="back "><img width="100" height="150" :src=" direccion +'/' + card.img"></div>
-                               
+                {{card.img}}
+                    <div v-if="card.men" class="memorycard" style="background:url''" >
+                      {{card.img}}
+                        <div  class="front border rounded shadow"><img width="100" height="150" src="imge/fon.jfif"></div>
+                        <div  class="back "><img width="100" height="150" :src=" direccion +'/' + card.img"></div>
                     </div>
+
                  </div>
             </div>
         </div>
@@ -62,6 +64,8 @@
 <script>
 
 import HelloWorld from '@/components/HelloWorld.vue'
+
+
 
 export default {
   name: 'Home',
@@ -85,14 +89,13 @@ export default {
             /* ///////////// */
 
              cards: [
-                {name:"in1",img:'im1.jpg'},
-                {name:"in2",img:'im0.jpg'},
-                {name:"in3",img:'im2.jpg'},
-                {name:"in4",img:'im3.jpg'},
-                {name:"in5",img: 0 },
-                {name:"in6",img: 0 }, 
-                {name:"in7",img: 0 }, 
-                
+                {name:"in1",img:'im1.jpg',men:''},
+                {name:"in2",img:'im0.jpg',men:''},
+                {name:"in3",img:'im2.jpg',men:''},
+                /* {name:"in4",img:'im3.jpg'}, */
+                {name:"in5",img: "a1",men:null},
+                {name:"in6",img: "a2",men:null}, 
+                {name:"in7",img: "a3",men:null}, 
             ],
             
 
@@ -136,7 +139,6 @@ export default {
           document.getElementById("difi").style.display="none";
           document.getElementById("ini").style.display="block";
           document.getElementById("jue").style.display="none";
-          
             }
 
     },
@@ -185,49 +187,50 @@ export default {
     mostrar(ide){
         this.ide
         this.valo = this.valo + this.ingre
-          document.getElementById("difi").style.display="none";
-          document.getElementById("ini").style.display="none";
-          document.getElementById("jue").style.display="block";
+         
         /* document.log(ingre, "este es el nuemro") */
         if(this.valo==2){
           this.valo=1
 
           switch(ide){
             case 0: {
-              for(var c=0; c <= 3 ;c++){
+              for(var c=0; c <= this.cards.length-1 ;c++){
+                
                 switch(c){
                   case 0:{
                     this.cards[c].name = "ini"+c,
                     this.cards[c].img = "im"+c+".jpg"
+                    this.cards[c].men = "a"+c,
+                    console.log(this.cards[c])
                   }break;
-                  case 4:{
-                    this.card[c].name= "0",
-                    this.card[c].img= "0"
+                  case 1:{
+                    this.cards[c].name = "ini"+c,
+                    this.cards[c].img = "im"+c+".jpg",
+                    this.cards[c].men = "a"+c
                   }break;
-                  default:
-                    {
-                    this.card[c].name= "0",
-                    this.card[c].img= "0"
-                    }break;
+                  case 2:{
+                    this.cards[c].name = "ini"+c,
+                    this.cards[c].img = "im"+c+".jpg"
+                    this.cards[c].men = "a"+c
+                  }break;
+                  default:{
+                    /* this.memoryCards[c]="casi cd" */
+                    this.cards[c].men= null
+                    console.log(this.cards[c])
+                  }break;
+ 
                 }
-                
-                console.log(this.card[c])
-              }
-                
-              }break;
-              case 1: {
-              for(var c=0; c<=4 ;c++){
-                this.cards[c].name= "ini"+c,
-                this.cards[c].img="comida.jpg"
-                console.log(this.cards[c])
-              }
-                
+              }   
               }break;
             }
-
           
-          }     
+          }    
+          this.reset()
+          document.getElementById("difi").style.display="none";
+          document.getElementById("ini").style.display="none";
+          document.getElementById("jue").style.display="block"; 
     },
+ 
 
     flipCard(card){
 
@@ -408,5 +411,6 @@ export default {
     .matched{
    opacity: 0.3;
 }
+
 
 </style>
