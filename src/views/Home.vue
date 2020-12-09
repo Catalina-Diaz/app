@@ -144,12 +144,12 @@ export default {
     },
   methods:{
     inicio(){
-
+          this.id=0;
+          this.ide=0;
           this.val = this.val + this.ingreso
           if(this.val==2){
           this.val=1,
-          this.id=8;
-          this.ide=8;
+          
           /* this.$router.push('/') */
           document.getElementById("difi").style.display="none";
           document.getElementById("ini").style.display="block";
@@ -159,6 +159,7 @@ export default {
     },
     ver(id){
         this.id
+        this.ide=0;
         this.val = this.val + this.ingreso
         if(this.val==2){
          
@@ -344,12 +345,15 @@ export default {
               }break;
            
             }
-          
+            this.id=0;
+            this.ide=0;
           }    
           this.reset()
           document.getElementById("difi").style.display="none";
           document.getElementById("ini").style.display="none";
           document.getElementById("jue").style.display="block"; 
+          this.id=0;
+          this.ide=0;
     },
  
 
