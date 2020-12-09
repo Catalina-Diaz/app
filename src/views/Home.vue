@@ -38,19 +38,26 @@
         <div class="totalTime p-3"><span class="btn btn-warning">Total Time : <span class="badge" :class="finish ? 'badge-success' : 'badge-light'">{{min}} : {{sec}}</span></span></div>
         <div class="totalTime p-3"><button class="btn btn-info" @click="reset" :disabled="!start">Restart</button></div>
     </div>
+    <!--  <div v-if="finish==true" > 
+            <div class="alert alert-success" role="alert">
+                         A simple success alert—check it out!
+          </div>
+     </div> -->
     <div class="row">
-        <div class="col-md-8 col-lg-10 col-xl-12  mx-auto">
+        <div class="m-4">
              <div class="row justify-content-md-center">
-                  <div v-for="(card, index) in memoryCards" class="col-auto mb-3 flip-container" :class="{ 'flipped': card.isFlipped, 'matched' : card.isMatched }" @click="flipCard(card)" :key="index">
-  
-                {{card.img}}
-                    <div v-if="card.men" class="memorycard" style="background:url''" >
-                      {{card.img}}
-                        <div  class="front border rounded shadow"><img width="100" height="150" src="imge/fon.jfif"></div>
+                  <div v-for="(card, index) in memoryCards" class=" flip-container" :class="{ 'flipped': card.isFlipped, 'matched' : card.isMatched } " @click="flipCard(card)" :key="index">
+                        {{card.img}}
+                    <div v-if="card.men" class="memorycard col-auto  flip-container">
+                        <div  class="front border rounded shadow "><img width="100" height="150" src="imge/fon.jfif"></div>
                         <div  class="back "><img width="100" height="150" :src=" direccion +'/' + card.img"></div>
                     </div>
-
+                    <div v-else class="memorycard" >
+                      
+                    </div>
+                   
                  </div>
+                 
             </div>
         </div>
     </div>
@@ -89,21 +96,21 @@ export default {
             /* ///////////// */
 
              cards: [
-                {name:"in1",img:'im1.jpg',men:null},
-                {name:"in2",img:'im0.jpg',men:null},
-                {name:"in3",img:'im2.jpg',men:null},
-                {name:"in5",img: "a1",men:null},
-                {name:"in6",img: "a2",men:null}, 
-                {name:"in7",img: "a3",men:null}, 
-                {name:"in8",img: "a3",men:null}, 
-                {name:"in9",img: "a3",men:null}, 
-                {name:"in10",img: "a3",men:null}, 
-                {name:"in11",img: "a3",men:null}, 
-                {name:"in12",img: "a3",men:null}, 
-                {name:"in13",img: "a3",men:null}, 
-                {name:"in14",img: "a3",men:null}, 
-                {name:"in15",img: "a3",men:null}, 
-                {name:"in15",img: "a3",men:null}, 
+                {name:"in1",img:'',men:null},
+                {name:"in2",img:'',men:null},
+                {name:"in3",img:'',men:null},
+                {name:"in5",img:"",men:null},
+                {name:"in6",img:"",men:null}, 
+                {name:"in7",img:"",men:null}, 
+                {name:"in8",img:"",men:null}, 
+                {name:"in9",img:"",men:null}, 
+                {name:"in10",img:"",men:null}, 
+                {name:"in11",img:"",men:null}, 
+                {name:"in12",img:"",men:null}, 
+                {name:"in13",img:"",men:null}, 
+                {name:"in14",img:"",men:null}, 
+                {name:"in15",img:"",men:null}, 
+                {name:"in15",img:"",men:null}, 
             ],
             d:0,
 
@@ -350,30 +357,78 @@ export default {
 
            if(card.isMatched || card.isFlipped || this.flippedCards.length === 2)
             return;
-        if(!this.start){
+           if(!this.start){
             this._startGame();
-         }
+           }
           card.isFlipped = true;
-          if(this.flippedCards.length < 2)
-               this.flippedCards.push(card);
-          if(this.flippedCards.length === 2)    
-              this._match(card);
+          if(this.flippedCards.length < 2){
+              this.flippedCards.push(card);
+          }
+           
+          
+          if(this.flippedCards.length === 2)  {
+            this._match(card);
+          }  
+              
         },
 
 
 
       _match(card){
             this.turns++;
-             if(this.flippedCards[0].name === this.flippedCards[1].name){
-          setTimeout(() => {
-            this.flippedCards.forEach(card => card.isMatched = true);
-            this.flippedCards = [];
-               if(this.memoryCards.every(card => card.isMatched === true)){
+            if(this.flippedCards[0].name === this.flippedCards[1].name){
+              
+              setTimeout(() => { this.flippedCards.forEach(card => card.isMatched = true);
+              this.flippedCards = [];
+              
+                switch(this.ide){
+                  case 0:{
+                    if(this.turns==3){
+                      clearInterval(this.interval);
+                      this.finish = true;
+                      
+                    }
+                  }break;
+                  case 1:{
+                    if(this.turns==4){
+                      clearInterval(this.interval);
+                      this.finish = true;
+                    }
+                  }break;
+                  case 2:{
+                    if(this.turns==5){
+                      clearInterval(this.interval);
+                      this.finish = true;
+                    }
+                  }break;
+                  case 3:{
+                    if(this.turns==6){
+                      clearInterval(this.interval);
+                      this.finish = true;
+                    }
+                  }break;
+                  case 4:{
+                    if(this.turns==7){
+                      clearInterval(this.interval);
+                      this.finish = true;
+                    }
+                  }break;
+                  case 5:{
+                    if(this.turns==8){
+                      clearInterval(this.interval);
+                      this.finish = true;
+                    }
+                  }break;
+                }
+               if(this.memoryCards.every(card => card.isMatched == true)){
+                 console.log("si")
                  clearInterval(this.interval);
                  this.finish = true;}
+                 
                  }, 400);
-             }else{
-          setTimeout(() => {
+            }else{
+              console.log("no")
+              setTimeout(() => {
               this.flippedCards.forEach((card) => {card.isFlipped = false});
               this.flippedCards = [];
               }, 800); 
