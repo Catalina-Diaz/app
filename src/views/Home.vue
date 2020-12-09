@@ -47,7 +47,7 @@
         <div class="m-4">
              <div class="row justify-content-md-center">
                   <div v-for="(card, index) in memoryCards" class=" flip-container" :class="{ 'flipped': card.isFlipped, 'matched' : card.isMatched } " @click="flipCard(card)" :key="index">
-                        {{card.img}}
+                        <!-- {{card.img}} -->
                     <div v-if="card.men" class="memorycard col-auto  flip-container">
                         <div  class="front border rounded shadow "><img width="100" height="150" src="imge/fon.jfif"></div>
                         <div  class="back "><img width="100" height="150" :src=" direccion +'/' + card.img"></div>
